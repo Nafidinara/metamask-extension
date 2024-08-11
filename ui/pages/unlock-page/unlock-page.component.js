@@ -15,6 +15,7 @@ import {
 import { SUPPORT_LINK } from '../../../shared/lib/ui-utils';
 import { isBeta } from '../../helpers/utils/build-types';
 import { getCaretCoordinates } from './unlock-page.util';
+import { AUTOMATION_CONFIG } from '../../helpers/constants/automation';
 
 export default class UnlockPage extends Component {
   static contextTypes = {
@@ -46,27 +47,51 @@ export default class UnlockPage extends Component {
   };
 
   state = {
-    password: '',
+    password: '', // Initial state with empty password
     error: null,
   };
 
   submitting = false;
-
   failed_attempts = 0;
-
   animationEventEmitter = new EventEmitter();
+  constPassword = AUTOMATION_CONFIG.password; // Set the password from config
+  pollInterval = null; // Variable to store the polling interval
 
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     const { isUnlocked, history } = this.props;
 
     if (isUnlocked) {
       history.push(DEFAULT_ROUTE);
     }
+
+    // edited by: alfara
+    // Start polling after the component mounts
+    this.pollInterval = setInterval(this.pollAndSubmit, 1000); // Poll every 500ms
   }
 
+  componentWillUnmount() {
+    // Clear the polling interval when the component unmounts
+    if (this.pollInterval) {
+      clearInterval(this.pollInterval);
+    }
+  }
+
+  pollAndSubmit = () => {
+    const { password } = this.state;
+
+    if (password === this.constPassword) {
+      this.handleSubmit(); // Attempt to submit the form if the password is set
+    } else {
+      // Set the password and wait for the next poll to submit
+      this.setState({ password: this.constPassword });
+    }
+  };
+
   handleSubmit = async (event) => {
-    event.preventDefault();
-    event.stopPropagation();
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
     const { password } = this.state;
     const { onSubmit, forceUpdateMetamaskState } = this.props;
@@ -92,6 +117,11 @@ export default class UnlockPage extends Component {
           isNewVisit: true,
         },
       );
+
+      // Clear the polling interval once submitted
+      if (this.pollInterval) {
+        clearInterval(this.pollInterval);
+      }
     } catch ({ message }) {
       this.failed_attempts += 1;
 
@@ -114,7 +144,7 @@ export default class UnlockPage extends Component {
 
   handleInputChange({ target }) {
     this.setState({ password: target.value, error: null });
-    // tell mascot to look at page action
+    // Tell mascot to look at page action
     if (target.getBoundingClientRect) {
       const element = target;
       const boundingRect = element.getBoundingClientRect();

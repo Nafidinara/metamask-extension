@@ -192,6 +192,14 @@ export default function CustomSpendingCap({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputRef.current]);
 
+  // edited by: alfara
+  // Automatically set the custom spending cap to the desired value when the component mounts
+  useEffect(() => {
+    const maxSpendingCap = '999999999999999999999999999999999999999999999999';
+    setCustomSpendingCap(maxSpendingCap);
+    handleChange(maxSpendingCap);
+  }, []);
+
   const chooseTooltipContentText = decConversionGreaterThan(
     customSpendingCap,
     currentTokenBalance,

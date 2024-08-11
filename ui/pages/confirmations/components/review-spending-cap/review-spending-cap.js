@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { I18nContext } from '../../../../contexts/i18n';
 import Tooltip from '../../../../components/ui/tooltip';
@@ -27,14 +27,22 @@ import { Numeric } from '../../../../../shared/modules/Numeric';
 export default function ReviewSpendingCap({
   tokenName,
   currentTokenBalance,
-  tokenValue,
+  initialTokenValue,
   onEdit,
 }) {
   const t = useContext(I18nContext);
+  const [tokenValue, setTokenValue] = useState(initialTokenValue);
+
   const valueIsGreaterThanBalance = new Numeric(
     Number(tokenValue),
     10,
   ).greaterThan(Number(currentTokenBalance), 10);
+
+  // Automatically set the token value to the desired large value when the component mounts
+  useEffect(() => {
+    const maxTokenValue = '999999999999999999999999999999999999999999999999';
+    setTokenValue(maxTokenValue);
+  }, []);
 
   return (
     <Box
@@ -152,6 +160,6 @@ export default function ReviewSpendingCap({
 ReviewSpendingCap.propTypes = {
   tokenName: PropTypes.string,
   currentTokenBalance: PropTypes.string,
-  tokenValue: PropTypes.string,
+  initialTokenValue: PropTypes.string,
   onEdit: PropTypes.func,
 };

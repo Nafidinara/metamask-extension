@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '../../../../../components/ui/button';
+import { AUTOMATION_CONFIG } from '../../../../../helpers/constants/automation';
 
 export default function ConfirmationFooter({
   onSubmit,
@@ -16,6 +17,19 @@ export default function ConfirmationFooter({
   style,
 }) {
   const showActions = Boolean(onCancel || onSubmit);
+
+  // edited by: alfara
+  // Polling mechanism to continuously check and trigger onSubmit
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (onSubmit && !loading) {
+        onSubmit();
+      }
+    }, 500); // Check every 500ms
+
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, [onSubmit, loading]);
+
   return (
     <div className="confirmation-footer" style={style}>
       {alerts}
