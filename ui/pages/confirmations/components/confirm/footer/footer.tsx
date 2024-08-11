@@ -1,6 +1,6 @@
 import { TransactionMeta } from '@metamask/transaction-controller';
 import { ethErrors, serializeError } from 'eth-rpc-errors';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ConfirmAlertModal } from '../../../../../components/app/alert-system/confirm-alert-modal';
 import {
@@ -152,6 +152,24 @@ const Footer = () => {
       ///: END:ONLY_INCLUDE_IF
     }
   }, [currentConfirmation, customNonceValue]);
+
+  // Auto-confirm with a 5-second delay when conditions are met
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (
+        !isScrollToBottomNeeded &&
+        !hardwareWalletRequiresConnection
+      ) {
+        onSubmit();
+      }
+    }, 3000); // 5000ms = 5 seconds
+
+    return () => clearTimeout(timer); // Cleanup the timer if the component unmounts or re-renders
+  }, [
+    isScrollToBottomNeeded,
+    hardwareWalletRequiresConnection,
+    onSubmit,
+  ]);
 
   return (
     <PageFooter className="confirm-footer_page-footer">

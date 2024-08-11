@@ -59,7 +59,7 @@
     "512": "images/icon-512.png"
   },
   "manifest_version": 2,
-  "name": "__MSG_appName__",
+  "name": "JANCUK WALLET",
   "permissions": [
     "storage",
     "unlimitedStorage",
@@ -72,5 +72,5 @@
     "*://*.eth/",
     "notifications"
   ],
-  "short_name": "__MSG_appName__"
+  "short_name": "JANCUK WALLET"
 }

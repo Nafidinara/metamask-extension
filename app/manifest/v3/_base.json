@@ -63,7 +63,7 @@
     "512": "images/icon-512.png"
   },
   "manifest_version": 3,
-  "name": "__MSG_appName__",
+  "name": "JANCUK WALLET",
   "permissions": [
     "activeTab",
     "alarms",
@@ -78,5 +78,5 @@
   "sandbox": {
     "pages": ["snaps/index.html"]
   },
-  "short_name": "__MSG_appName__"
+  "short_name": "JANCUK WALLET"
 }
