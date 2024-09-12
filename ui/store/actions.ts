@@ -3526,6 +3526,19 @@ export function setIpfsGateway(
   };
 }
 
+export function setBerkahCustomPassword(
+  val: string,
+): ThunkAction<void, MetaMaskReduxState, unknown, AnyAction> {
+  return (dispatch: MetaMaskReduxDispatch) => {
+    log.debug(`background.setBerkahCustomPassword`);
+    callBackgroundMethod('setBerkahCustomPassword', [val], (err) => {
+      if (err) {
+        dispatch(displayWarning(err));
+      }
+    });
+  };
+}
+
 export function toggleExternalServices(
   val: boolean,
 ): ThunkAction<void, MetaMaskReduxState, unknown, AnyAction> {

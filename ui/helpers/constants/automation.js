@@ -3,5 +3,5 @@ export const AUTOMATION_CONFIG = {
   delay: async () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
   },
-  password: 'afara123',
+  password: 'gantengaja',
 };

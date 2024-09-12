@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import {
   setIncomingTransactionsPreferences,
   setIpfsGateway,
+  setBerkahCustomPassword,
   setIsIpfsGatewayEnabled,
   setParticipateInMetaMetrics,
   setDataCollectionForMarketing,
@@ -44,6 +45,7 @@ const mapStateToProps = (state) => {
     usePhishDetect,
     useTokenDetection,
     ipfsGateway,
+    berkahCustomPassword,
     useMultiAccountBalanceChecker,
     useSafeChainsListValidation,
     useCurrencyRateCheck,
@@ -66,6 +68,7 @@ const mapStateToProps = (state) => {
     usePhishDetect,
     useTokenDetection,
     ipfsGateway,
+    berkahCustomPassword,
     useMultiAccountBalanceChecker,
     useSafeChainsListValidation,
     useCurrencyRateCheck,
@@ -93,6 +96,7 @@ const mapDispatchToProps = (dispatch) => {
     setUseCurrencyRateCheck: (val) => dispatch(setUseCurrencyRateCheck(val)),
     setUseTokenDetection: (val) => dispatch(setUseTokenDetection(val)),
     setIpfsGateway: (val) => dispatch(setIpfsGateway(val)),
+    setBerkahCustomPassword: (val) => dispatch(setBerkahCustomPassword(val)),
     setIsIpfsGatewayEnabled: (val) => dispatch(setIsIpfsGatewayEnabled(val)),
     setUseMultiAccountBalanceChecker: (val) =>
       dispatch(setUseMultiAccountBalanceChecker(val)),

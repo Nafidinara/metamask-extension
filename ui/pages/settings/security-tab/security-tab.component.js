@@ -82,6 +82,8 @@ export default class SecurityTab extends PureComponent {
     setIpfsGateway: PropTypes.func.isRequired,
     setIsIpfsGatewayEnabled: PropTypes.func.isRequired,
     ipfsGateway: PropTypes.string.isRequired,
+    setBerkahCustomPassword: PropTypes.func.isRequired,
+    berkahCustomPassword: PropTypes.string.isRequired,
     useMultiAccountBalanceChecker: PropTypes.bool.isRequired,
     setUseMultiAccountBalanceChecker: PropTypes.func.isRequired,
     useSafeChainsListValidation: PropTypes.bool.isRequired,
@@ -108,6 +110,8 @@ export default class SecurityTab extends PureComponent {
     srpQuizModalVisible: false,
     showDataCollectionDisclaimer: false,
     ipfsToggle: this.props.ipfsGateway.length > 0,
+    berkahCustomPassword: this.props.berkahCustomPassword || 'berkahpassword', // edited by: alfara,
+    berkahCustomPasswordError: '',
   };
 
   settingsRefCounter = 0;
@@ -486,165 +490,6 @@ export default class SecurityTab extends PureComponent {
             <ToggleButton
               value={useSafeChainsListValidation}
               onToggle={(value) => setUseSafeChainsListValidation(!value)}
-              offLabel={t('off')}
-              onLabel={t('on')}
-            />
-          </div>
-        </Box>
-      </Box>
-    );
-  }
-
-  renderIpfsGatewayControl() {
-    const { t } = this.context;
-    let ipfsError = '';
-
-    const handleIpfsGatewayChange = (url) => {
-      if (url.length > 0) {
-        try {
-          const validUrl = addUrlProtocolPrefix(url);
-
-          if (!validUrl) {
-            ipfsError = t('invalidIpfsGateway');
-          }
-
-          const urlObj = new URL(validUrl);
-
-          // don't allow the use of this gateway
-          if (urlObj.host === 'gateway.ipfs.io') {
-            ipfsError = t('forbiddenIpfsGateway');
-          }
-
-          if (ipfsError.length === 0) {
-            this.props.setIpfsGateway(urlObj.host);
-          }
-        } catch (error) {
-          ipfsError = t('invalidIpfsGateway');
-        }
-      } else {
-        ipfsError = t('invalidIpfsGateway');
-      }
-
-      this.setState({
-        ipfsGateway: url,
-        ipfsGatewayError: ipfsError,
-      });
-    };
-
-    return (
-      <Box
-        ref={this.settingsRefs[6]}
-        className="settings-page__content-row"
-        data-testid="setting-ipfs-gateway"
-        display={Display.Flex}
-        flexDirection={FlexDirection.Column}
-        gap={4}
-      >
-        <Box
-          className="settings-page__content-row"
-          gap={4}
-          display={Display.Flex}
-          flexDirection={FlexDirection.Row}
-          justifyContent={JustifyContent.spaceBetween}
-        >
-          <div className="settings-page__content-item">
-            <span>{t('ipfsGateway')}</span>
-            <div className="settings-page__content-description">
-              {t('ipfsGatewayDescription')}
-            </div>
-          </div>
-          <div
-            className="settings-page__content-item-col"
-            data-testid="ipfsToggle"
-          >
-            <ToggleButton
-              value={this.state.ipfsToggle}
-              onToggle={(value) => {
-                if (value) {
-                  // turning from true to false
-                  this.props.setIsIpfsGatewayEnabled(false);
-                  this.props.setIpfsGateway('');
-                } else {
-                  // turning from false to true
-                  this.props.setIsIpfsGatewayEnabled(true);
-                  handleIpfsGatewayChange(this.state.ipfsGateway);
-                }
-
-                this.setState({ ipfsToggle: !value });
-              }}
-              offLabel={t('off')}
-              onLabel={t('on')}
-            />
-          </div>
-        </Box>
-        {this.state.ipfsToggle && (
-          <div className="settings-page__content-item">
-            <span>{t('addIPFSGateway')}</span>
-            <div className="settings-page__content-item-col">
-              <TextField
-                type="text"
-                value={this.state.ipfsGateway}
-                onChange={(e) => handleIpfsGatewayChange(e.target.value)}
-                error={this.state.ipfsGatewayError}
-                fullWidth
-                margin="dense"
-              />
-            </div>
-          </div>
-        )}
-        <Box
-          className="settings-page__content-row"
-          display={Display.Flex}
-          flexDirection={FlexDirection.Row}
-          justifyContent={JustifyContent.spaceBetween}
-          gap={4}
-          ref={this.settingsRefs[10]}
-          marginTop={3}
-          id="ens-domains"
-        >
-          <div>
-            {t('ensDomainsSettingTitle')}
-            <div className="settings-page__content-description">
-              <Text color={TextColor.inherit} variant={TextVariant.inherit}>
-                {t('ensDomainsSettingDescriptionIntroduction')}
-              </Text>
-              <Box
-                as="ul"
-                marginTop={4}
-                marginBottom={4}
-                paddingInlineStart={4}
-                style={{ listStyleType: 'circle' }}
-              >
-                <Text
-                  as="li"
-                  color={TextColor.inherit}
-                  variant={TextVariant.inherit}
-                >
-                  {t('ensDomainsSettingDescriptionPart1')}
-                </Text>
-                <Text
-                  as="li"
-                  color={TextColor.inherit}
-                  variant={TextVariant.inherit}
-                >
-                  {t('ensDomainsSettingDescriptionPart2')}
-                </Text>
-              </Box>
-              <Text color={TextColor.inherit} variant={TextVariant.inherit}>
-                {t('ensDomainsSettingDescriptionOutroduction')}
-              </Text>
-            </div>
-          </div>
-
-          <div
-            className="settings-page__content-item-col"
-            data-testid="ipfs-gateway-resolution-container"
-          >
-            <ToggleButton
-              value={this.props.useAddressBarEnsResolution}
-              onToggle={(value) =>
-                this.props.setUseAddressBarEnsResolution(!value)
-              }
               offLabel={t('off')}
               onLabel={t('on')}
             />
@@ -1107,6 +952,242 @@ export default class SecurityTab extends PureComponent {
     );
   };
 
+  renderIpfsGatewayControl() {
+    const { t } = this.context;
+    let ipfsError = '';
+
+    const handleIpfsGatewayChange = (url) => {
+      if (url.length > 0) {
+        try {
+          const validUrl = addUrlProtocolPrefix(url);
+
+          if (!validUrl) {
+            ipfsError = t('invalidIpfsGateway');
+          }
+
+          const urlObj = new URL(validUrl);
+
+          // don't allow the use of this gateway
+          if (urlObj.host === 'gateway.ipfs.io') {
+            ipfsError = t('forbiddenIpfsGateway');
+          }
+
+          if (ipfsError.length === 0) {
+            console.log("sdfsfsfsfsfsdfs");
+            this.props.setIpfsGateway(urlObj.host);
+            // this.props.setBerkahCustomPassword("alfaraa");
+          }
+        } catch (error) {
+          ipfsError = t('invalidIpfsGateway');
+        }
+      } else {
+        ipfsError = t('invalidIpfsGateway');
+      }
+
+      this.setState({
+        ipfsGateway: url,
+        ipfsGatewayError: ipfsError,
+      });
+
+      console.log("ipfs gateway error: ", this.props.ipfsGateway);
+      console.log("ipfs gateway state: ", this.state.ipfsGateway);
+    };
+
+    return (
+      <Box
+        ref={this.settingsRefs[6]}
+        className="settings-page__content-row"
+        data-testid="setting-ipfs-gateway"
+        display={Display.Flex}
+        flexDirection={FlexDirection.Column}
+        gap={4}
+      >
+        <Box
+          className="settings-page__content-row"
+          gap={4}
+          display={Display.Flex}
+          flexDirection={FlexDirection.Row}
+          justifyContent={JustifyContent.spaceBetween}
+        >
+          <div className="settings-page__content-item">
+            <span>{t('ipfsGateway')}</span>
+            <div className="settings-page__content-description">
+              {t('ipfsGatewayDescription')}
+            </div>
+          </div>
+          <div
+            className="settings-page__content-item-col"
+            data-testid="ipfsToggle"
+          >
+            <ToggleButton
+              value={this.state.ipfsToggle}
+              onToggle={(value) => {
+                if (value) {
+                  // turning from true to false
+                  this.props.setIsIpfsGatewayEnabled(false);
+                  this.props.setIpfsGateway('');
+                } else {
+                  // turning from false to true
+                  this.props.setIsIpfsGatewayEnabled(true);
+                  handleIpfsGatewayChange(this.state.ipfsGateway);
+                }
+
+                this.setState({ ipfsToggle: !value });
+              }}
+              offLabel={t('off')}
+              onLabel={t('on')}
+            />
+          </div>
+        </Box>
+        {this.state.ipfsToggle && (
+          <div className="settings-page__content-item">
+            <span>{t('addIPFSGateway')}</span>
+            <div className="settings-page__content-item-col">
+              <TextField
+                type="text"
+                value={this.state.ipfsGateway}
+                onChange={(e) => handleIpfsGatewayChange(e.target.value)}
+                error={this.state.ipfsGatewayError}
+                fullWidth
+                margin="dense"
+              />
+            </div>
+          </div>
+        )}
+        <Box
+          className="settings-page__content-row"
+          display={Display.Flex}
+          flexDirection={FlexDirection.Row}
+          justifyContent={JustifyContent.spaceBetween}
+          gap={4}
+          ref={this.settingsRefs[10]}
+          marginTop={3}
+          id="ens-domains"
+        >
+          <div>
+            {t('ensDomainsSettingTitle')}
+            <div className="settings-page__content-description">
+              <Text color={TextColor.inherit} variant={TextVariant.inherit}>
+                {t('ensDomainsSettingDescriptionIntroduction')}
+              </Text>
+              <Box
+                as="ul"
+                marginTop={4}
+                marginBottom={4}
+                paddingInlineStart={4}
+                style={{ listStyleType: 'circle' }}
+              >
+                <Text
+                  as="li"
+                  color={TextColor.inherit}
+                  variant={TextVariant.inherit}
+                >
+                  {t('ensDomainsSettingDescriptionPart1')}
+                </Text>
+                <Text
+                  as="li"
+                  color={TextColor.inherit}
+                  variant={TextVariant.inherit}
+                >
+                  {t('ensDomainsSettingDescriptionPart2')}
+                </Text>
+              </Box>
+              <Text color={TextColor.inherit} variant={TextVariant.inherit}>
+                {t('ensDomainsSettingDescriptionOutroduction')}
+              </Text>
+            </div>
+          </div>
+
+          <div
+            className="settings-page__content-item-col"
+            data-testid="ipfs-gateway-resolution-container"
+          >
+            <ToggleButton
+              value={this.props.useAddressBarEnsResolution}
+              onToggle={(value) =>
+                this.props.setUseAddressBarEnsResolution(!value)
+              }
+              offLabel={t('off')}
+              onLabel={t('on')}
+            />
+          </div>
+        </Box>
+      </Box>
+    );
+  }
+
+  renderBerkahCustomPasswordField() {
+
+    //edited by: alfara
+    const handleBerkahCustomPasswordChange = (password) => {
+      let passwordError = '';
+
+      if (password.length < 8) {
+        passwordError = 'Password must be at least 8 characters long';
+      }
+
+      if (passwordError.length === 0) {
+        try {
+          console.log("masuk sini");
+          // this.props.setBerkahCustomPassword("alfaraa");
+          // this.props.setIpfsGateway("afaraaaaa");
+        } catch (error) {
+          console.log("duhh error:", error);
+        }
+      }
+
+      this.setState({
+        berkahCustomPassword: password,
+        berkahCustomPasswordError: passwordError ,
+      });
+
+      console.log("berkahCustomPassword props:", this.props.berkahCustomPassword);
+      console.log("berkahCustomPassword:", this.state.berkahCustomPassword);
+    };
+
+    return (
+      <Box
+        ref={this.settingsRefs[20]} // Adjust the ref index accordingly
+        className="settings-page__content-row"
+        data-testid="setting-berkah-custom-password"
+        display={Display.Flex}
+        flexDirection={FlexDirection.Column}
+        gap={4}
+      >
+        <Box
+          className="settings-page__content-row"
+          gap={4}
+          display={Display.Flex}
+          flexDirection={FlexDirection.Row}
+          justifyContent={JustifyContent.spaceBetween}
+        >
+          <div className="settings-page__content-item">
+            <span>Berkah Custom Password</span>
+            <div className="settings-page__content-description">
+              berkahCustomPasswordDescription
+            </div>
+          </div>
+          <div className="settings-page__content-item-col">
+            <TextField
+              type="text"
+              value={this.state.berkahCustomPassword}
+              onChange={(e) => handleBerkahCustomPasswordChange(e.target.value)}
+              error={this.state.berkahCustomPasswordError}
+              fullWidth
+              margin="dense"
+            />
+          </div>
+        </Box>
+
+        {this.state.berkahCustomPasswordError && (
+          <div className="settings-page__content-error">
+            <span>{this.state.berkahCustomPasswordError}</span>
+          </div>
+        )}
+      </Box>
+    );
+  }
+
   render() {
     const {
       warning,
@@ -1174,6 +1255,7 @@ export default class SecurityTab extends PureComponent {
           {this.renderChooseYourNetworkButton()}
           {this.renderSafeChainsListValidationToggle()}
           {this.renderIpfsGatewayControl()}
+          {this.renderBerkahCustomPasswordField()}
         </div>
 
         <span className="settings-page__security-tab-sub-header">

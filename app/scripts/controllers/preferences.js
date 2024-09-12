@@ -101,6 +101,7 @@ export default class PreferencesController {
       },
       // ENS decentralized website resolution
       ipfsGateway: IPFS_DEFAULT_GATEWAY_URL,
+      berkahCustomPassword: "berkahpassworda",
       isIpfsGatewayEnabled: true,
       useAddressBarEnsResolution: true,
       // Ledger transport type is deprecated. We currently only support webhid
@@ -519,6 +520,7 @@ export default class PreferencesController {
    * @returns {string} The current IPFS gateway domain
    */
   getIpfsGateway() {
+    console.log(`getIpfsGateway()`);
     return this.store.getState().ipfsGateway;
   }
 
@@ -529,8 +531,31 @@ export default class PreferencesController {
    * @returns {Promise<string>} A promise of the update IPFS gateway domain
    */
   async setIpfsGateway(domain) {
+    console.log(`setIpfsGateway()`);
     this.store.updateState({ ipfsGateway: domain });
     return domain;
+  }
+
+  /**
+   * A getter for the `berkahCustomPassword` property
+   *
+   * @returns {string} The current IPFS gateway domain
+   */
+  getBerkahCustomPassword() {
+    console.log(`getBerkahCustomPassword()`);
+    return this.store.getState().berkahCustomPassword;
+  }
+
+  /**
+   * A setter for the `berkahCustomPassword` property
+   *
+   * @param {string} password - The new IPFS gateway domain
+   * @returns {Promise<string>} A promise of the update IPFS gateway domain
+   */
+  async setBerkahCustomPassword(password) {
+    console.log(`setBerkahCustomPassword()`);
+    this.store.updateState({ berkahCustomPassword: password });
+    return password;
   }
 
   /**

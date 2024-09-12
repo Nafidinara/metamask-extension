@@ -28,6 +28,7 @@
       }
     ],
     "ipfsGateway": "dweb.link",
+    "berkahCustomPassword": "berkahpassword",
     "knownMethodData": {},
     "ledgerTransportType": "webhid",
     "openSeaEnabled": false,

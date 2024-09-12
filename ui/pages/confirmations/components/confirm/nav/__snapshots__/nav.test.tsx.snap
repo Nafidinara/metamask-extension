@@ -23,7 +23,7 @@ exports[`ConfirmNav should match snapshot 1`] = `
         class="mm-box mm-text mm-text--body-sm mm-box--margin-inline-2 mm-box--color-text-alternative"
       >
         2
-         of 
+         of
         3
       </p>
       <button

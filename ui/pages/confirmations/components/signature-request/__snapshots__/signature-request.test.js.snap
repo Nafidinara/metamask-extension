@@ -38,9 +38,9 @@ exports[`Signature Request Component render should match snapshot when we are us
           class="confirm-page-container-navigation__navtext"
         >
           0
-           
+
           of
-           
+
           0
         </div>
         <div
@@ -168,7 +168,7 @@ exports[`Signature Request Component render should match snapshot when we are us
             class="mm-box mm-text mm-text--body-sm mm-text--font-weight-bold mm-box--color-text-default"
           >
             0
-             
+
             ETH
           </h6>
         </div>
@@ -267,7 +267,7 @@ exports[`Signature Request Component render should match snapshot when we are us
             >
               Contents
               :
-               
+
             </div>
             <div
               class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -283,7 +283,7 @@ exports[`Signature Request Component render should match snapshot when we are us
             >
               From
               :
-               
+
             </div>
             <ul
               class="mm-box signature-request-data__node"
@@ -296,7 +296,7 @@ exports[`Signature Request Component render should match snapshot when we are us
                 >
                   Name
                   :
-                   
+
                 </div>
                 <div
                   class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -312,7 +312,7 @@ exports[`Signature Request Component render should match snapshot when we are us
                 >
                   Wallets
                   :
-                   
+
                 </div>
                 <ul
                   class="mm-box signature-request-data__node"
@@ -325,7 +325,7 @@ exports[`Signature Request Component render should match snapshot when we are us
                     >
                       0
                       :
-                       
+
                     </div>
                     <div
                       class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -401,7 +401,7 @@ exports[`Signature Request Component render should match snapshot when we are us
                     >
                       1
                       :
-                       
+
                     </div>
                     <div
                       class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -481,7 +481,7 @@ exports[`Signature Request Component render should match snapshot when we are us
             >
               To
               :
-               
+
             </div>
             <ul
               class="mm-box signature-request-data__node"
@@ -494,7 +494,7 @@ exports[`Signature Request Component render should match snapshot when we are us
                 >
                   0
                   :
-                   
+
                 </div>
                 <ul
                   class="mm-box signature-request-data__node"
@@ -507,7 +507,7 @@ exports[`Signature Request Component render should match snapshot when we are us
                     >
                       Name
                       :
-                       
+
                     </div>
                     <div
                       class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -523,7 +523,7 @@ exports[`Signature Request Component render should match snapshot when we are us
                     >
                       Wallets
                       :
-                       
+
                     </div>
                     <ul
                       class="mm-box signature-request-data__node"
@@ -536,7 +536,7 @@ exports[`Signature Request Component render should match snapshot when we are us
                         >
                           0
                           :
-                           
+
                         </div>
                         <div
                           class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -612,7 +612,7 @@ exports[`Signature Request Component render should match snapshot when we are us
                         >
                           1
                           :
-                           
+
                         </div>
                         <div
                           class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -688,7 +688,7 @@ exports[`Signature Request Component render should match snapshot when we are us
                         >
                           2
                           :
-                           
+
                         </div>
                         <div
                           class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -831,9 +831,9 @@ exports[`Signature Request Component render should match snapshot when we want t
           class="confirm-page-container-navigation__navtext"
         >
           0
-           
+
           of
-           
+
           0
         </div>
         <div
@@ -961,7 +961,7 @@ exports[`Signature Request Component render should match snapshot when we want t
             class="mm-box mm-text mm-text--body-sm mm-text--font-weight-bold mm-box--color-text-default"
           >
             0
-             
+
             ETH
           </h6>
         </div>
@@ -1060,7 +1060,7 @@ exports[`Signature Request Component render should match snapshot when we want t
             >
               Contents
               :
-               
+
             </div>
             <div
               class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -1076,7 +1076,7 @@ exports[`Signature Request Component render should match snapshot when we want t
             >
               From
               :
-               
+
             </div>
             <ul
               class="mm-box signature-request-data__node"
@@ -1089,7 +1089,7 @@ exports[`Signature Request Component render should match snapshot when we want t
                 >
                   Name
                   :
-                   
+
                 </div>
                 <div
                   class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -1105,7 +1105,7 @@ exports[`Signature Request Component render should match snapshot when we want t
                 >
                   Wallets
                   :
-                   
+
                 </div>
                 <ul
                   class="mm-box signature-request-data__node"
@@ -1118,7 +1118,7 @@ exports[`Signature Request Component render should match snapshot when we want t
                     >
                       0
                       :
-                       
+
                     </div>
                     <div
                       class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -1194,7 +1194,7 @@ exports[`Signature Request Component render should match snapshot when we want t
                     >
                       1
                       :
-                       
+
                     </div>
                     <div
                       class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -1274,7 +1274,7 @@ exports[`Signature Request Component render should match snapshot when we want t
             >
               To
               :
-               
+
             </div>
             <ul
               class="mm-box signature-request-data__node"
@@ -1287,7 +1287,7 @@ exports[`Signature Request Component render should match snapshot when we want t
                 >
                   0
                   :
-                   
+
                 </div>
                 <ul
                   class="mm-box signature-request-data__node"
@@ -1300,7 +1300,7 @@ exports[`Signature Request Component render should match snapshot when we want t
                     >
                       Name
                       :
-                       
+
                     </div>
                     <div
                       class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -1316,7 +1316,7 @@ exports[`Signature Request Component render should match snapshot when we want t
                     >
                       Wallets
                       :
-                       
+
                     </div>
                     <ul
                       class="mm-box signature-request-data__node"
@@ -1329,7 +1329,7 @@ exports[`Signature Request Component render should match snapshot when we want t
                         >
                           0
                           :
-                           
+
                         </div>
                         <div
                           class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -1405,7 +1405,7 @@ exports[`Signature Request Component render should match snapshot when we want t
                         >
                           1
                           :
-                           
+
                         </div>
                         <div
                           class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"
@@ -1481,7 +1481,7 @@ exports[`Signature Request Component render should match snapshot when we want t
                         >
                           2
                           :
-                           
+
                         </div>
                         <div
                           class="mm-box mm-text signature-request-data__node__value mm-text--body-md mm-box--margin-left-4 mm-box--color-text-default"

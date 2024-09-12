@@ -18,6 +18,7 @@ export default {
     },
     setShowTestNetworks: { action: 'setShowTestNetworks' },
     setIpfsGateway: { action: 'setIpfsGateway' },
+    setBerkahCustomPassword: { action: 'setBerkahCustomPassword' },
     setIsIpfsGatewayEnabled: { action: 'setIsIpfsGatewayEnabled' },
     setDismissSeedBackUpReminder: { action: 'setDismissSeedBackUpReminder' },
     setUseNonceField: { action: 'setUseNonceField' },

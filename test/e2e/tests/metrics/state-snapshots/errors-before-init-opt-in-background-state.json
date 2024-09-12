@@ -106,6 +106,7 @@
       "forgottenPassword": false,
       "identities": "object",
       "ipfsGateway": "string",
+      "berkahCustomPassword": "string",
       "knownMethodData": "object",
       "ledgerTransportType": "webhid",
       "lostIdentities": "object",

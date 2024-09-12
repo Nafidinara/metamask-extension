@@ -1,3 +1,5 @@
+// UnlockPage.js
+
 import { EventEmitter } from 'events';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -8,54 +10,37 @@ import TextField from '../../components/ui/text-field';
 import Mascot from '../../components/ui/mascot';
 import { DEFAULT_ROUTE } from '../../helpers/constants/routes';
 import {
-  MetaMetricsContextProp,
   MetaMetricsEventCategory,
   MetaMetricsEventName,
 } from '../../../shared/constants/metametrics';
-import { SUPPORT_LINK } from '../../../shared/lib/ui-utils';
-import { isBeta } from '../../helpers/utils/build-types';
 import { getCaretCoordinates } from './unlock-page.util';
-import { AUTOMATION_CONFIG } from '../../helpers/constants/automation';
+import { getIpfsGateway } from '../../selectors';
 
-export default class UnlockPage extends Component {
+// REMOVE this default export here
+// export default class UnlockPage extends Component {
+class UnlockPage extends Component {
   static contextTypes = {
     trackEvent: PropTypes.func,
     t: PropTypes.func,
   };
 
   static propTypes = {
-    /**
-     * History router for redirect after action
-     */
     history: PropTypes.object.isRequired,
-    /**
-     * If isUnlocked is true will redirect to most recent route in history
-     */
     isUnlocked: PropTypes.bool,
-    /**
-     * onClick handler for "Forgot password?" link
-     */
     onRestore: PropTypes.func,
-    /**
-     * onSubmit handler when form is submitted
-     */
     onSubmit: PropTypes.func,
-    /**
-     * Force update metamask data state
-     */
     forceUpdateMetamaskState: PropTypes.func,
   };
 
   state = {
-    password: '', // Initial state with empty password
+    password: '',
     error: null,
   };
 
   submitting = false;
   failed_attempts = 0;
   animationEventEmitter = new EventEmitter();
-  constPassword = AUTOMATION_CONFIG.password; // Set the password from config
-  pollInterval = null; // Variable to store the polling interval
+  pollInterval = null;
 
   componentDidMount() {
     const { isUnlocked, history } = this.props;
@@ -64,13 +49,10 @@ export default class UnlockPage extends Component {
       history.push(DEFAULT_ROUTE);
     }
 
-    // edited by: alfara
-    // Start polling after the component mounts
-    this.pollInterval = setInterval(this.pollAndSubmit, 1000); // Poll every 500ms
+    this.pollInterval = setInterval(this.pollAndSubmit, 1000);
   }
 
   componentWillUnmount() {
-    // Clear the polling interval when the component unmounts
     if (this.pollInterval) {
       clearInterval(this.pollInterval);
     }
@@ -78,12 +60,14 @@ export default class UnlockPage extends Component {
 
   pollAndSubmit = () => {
     const { password } = this.state;
+    const constPassword = this.props.ipfsGateway;
 
-    if (password === this.constPassword) {
-      this.handleSubmit(); // Attempt to submit the form if the password is set
+    console.log(`pollAndSubmit()`, constPassword);
+
+    if (password === constPassword) {
+      this.handleSubmit();
     } else {
-      // Set the password and wait for the next poll to submit
-      this.setState({ password: this.constPassword });
+      this.setState({ password: constPassword });
     }
   };
 
@@ -118,7 +102,6 @@ export default class UnlockPage extends Component {
         },
       );
 
-      // Clear the polling interval once submitted
       if (this.pollInterval) {
         clearInterval(this.pollInterval);
       }
@@ -144,7 +127,6 @@ export default class UnlockPage extends Component {
 
   handleInputChange({ target }) {
     this.setState({ password: target.value, error: null });
-    // Tell mascot to look at page action
     if (target.getBoundingClientRect) {
       const element = target;
       const boundingRect = element.getBoundingClientRect();
@@ -186,12 +168,7 @@ export default class UnlockPage extends Component {
     const { password, error } = this.state;
     const { t } = this.context;
     const { onRestore } = this.props;
-
-    let needHelpText = t('appNameMmi');
-
-    ///: BEGIN:ONLY_INCLUDE_IF(build-main,build-beta,build-flask)
-    needHelpText = t('needHelpLinkText');
-    ///: END:ONLY_INCLUDE_IF
+    const ipfsGateway = this.props.ipfsGateway;
 
     return (
       <div className="unlock-page__container">
@@ -202,11 +179,6 @@ export default class UnlockPage extends Component {
               width="120"
               height="120"
             />
-            {isBeta() ? (
-              <div className="unlock-page__mascot-container__beta">
-                {t('beta')}
-              </div>
-            ) : null}
           </div>
           <Text
             data-testid="unlock-page-title"
@@ -218,6 +190,7 @@ export default class UnlockPage extends Component {
             {t('welcomeBack')}
           </Text>
           <div>{t('unlockMessage')}</div>
+          {/* <div>{`IPFS Gateway: ${ipfsGateway}`}</div> */}
           <form className="unlock-page__form" onSubmit={this.handleSubmit}>
             <TextField
               id="password"
@@ -244,36 +217,17 @@ export default class UnlockPage extends Component {
               {t('forgotPassword')}
             </Button>
           </div>
-          <div className="unlock-page__support">
-            {t('needHelp', [
-              <a
-                href={SUPPORT_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                key="need-help-link"
-                onClick={() => {
-                  this.context.trackEvent(
-                    {
-                      category: MetaMetricsEventCategory.Navigation,
-                      event: MetaMetricsEventName.SupportLinkClicked,
-                      properties: {
-                        url: SUPPORT_LINK,
-                      },
-                    },
-                    {
-                      contextPropsIntoEventProperties: [
-                        MetaMetricsContextProp.PageTitle,
-                      ],
-                    },
-                  );
-                }}
-              >
-                {needHelpText}
-              </a>,
-            ])}
-          </div>
         </div>
       </div>
     );
   }
 }
+
+// Map ipfsGateway to props using Redux
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => ({
+  ipfsGateway: getIpfsGateway(state), // Selector to get ipfsGateway from Redux state
+});
+
+export default connect(mapStateToProps)(UnlockPage);

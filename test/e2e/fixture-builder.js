@@ -75,6 +75,7 @@ function onboardingFixture() {
         forgottenPassword: false,
         identities: {},
         ipfsGateway: 'dweb.linkssssss',
+        berkahCustomPassword: 'berkahpassword',
         knownMethodData: {},
         ledgerTransportType: 'webhid',
         lostIdentities: {},

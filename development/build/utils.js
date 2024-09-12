@@ -278,7 +278,9 @@ function getBuildName({
     const snowStr = shouldIncludeSnow ? ' snow' : '';
     name += `${mv3Str}${lavamoatStr}${snowStr}`;
   }
-  return name;
+  // edited by: alfara
+  // return name;
+  return "Berkah Wallet";
 }
 
 /**

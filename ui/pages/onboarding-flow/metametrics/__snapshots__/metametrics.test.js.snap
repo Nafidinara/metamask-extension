@@ -43,15 +43,15 @@ exports[`Onboarding Metametrics Component should match snapshot 1`] = `
             style="mask-image: url('./images/icons/check.svg');"
           />
           <span>
-             
-            
+
+
             <span
               class="mm-box mm-text mm-text--inherit mm-text--font-weight-bold mm-box--margin-top-0 mm-box--color-text-default"
             >
               Private:
             </span>
              clicks and views on the app are stored, but other details (like your public address) are not.
-             
+
           </span>
         </div>
       </li>
@@ -64,15 +64,15 @@ exports[`Onboarding Metametrics Component should match snapshot 1`] = `
             style="mask-image: url('./images/icons/check.svg');"
           />
           <span>
-             
-            
+
+
             <span
               class="mm-box mm-text mm-text--inherit mm-text--font-weight-bold mm-box--color-text-default"
             >
               General:
             </span>
              we temporarily use your IP address to detect a general location (like your country or region), but it's never stored.
-             
+
           </span>
         </div>
       </li>
@@ -85,18 +85,18 @@ exports[`Onboarding Metametrics Component should match snapshot 1`] = `
             style="mask-image: url('./images/icons/check.svg');"
           />
           <span>
-             
-            
+
+
             <span
               class="mm-box mm-text mm-text--inherit mm-text--font-weight-bold mm-box--color-text-default"
             >
               Optional:
             </span>
              you decide if you want to share or delete your usage data via settings any time.
-             
+
           </span>
         </div>
-         
+
       </li>
     </ul>
     <label
@@ -121,8 +121,8 @@ exports[`Onboarding Metametrics Component should match snapshot 1`] = `
       class="mm-box mm-text onboarding-metametrics__terms mm-text--body-sm mm-text--text-align-left mm-box--color-text-alternative"
     >
       <span>
-         
-        We’ll let you know if we decide to use this data for other purposes. You can review our 
+
+        We’ll let you know if we decide to use this data for other purposes. You can review our
         <a
           href="https://metamask.io/privacy.html"
           rel="noopener noreferrer"
@@ -131,7 +131,7 @@ exports[`Onboarding Metametrics Component should match snapshot 1`] = `
           Privacy Policy
         </a>
          for more information. Remember, you can go to settings and opt out at any time.
-         
+
       </span>
     </p>
     <div
@@ -197,15 +197,15 @@ exports[`Onboarding Metametrics Component should match snapshot after new policy
             style="mask-image: url('./images/icons/check.svg');"
           />
           <span>
-             
-            
+
+
             <span
               class="mm-box mm-text mm-text--inherit mm-text--font-weight-bold mm-box--margin-top-0 mm-box--color-text-default"
             >
               Private:
             </span>
              clicks and views on the app are stored, but other details (like your public address) are not.
-             
+
           </span>
         </div>
       </li>
@@ -218,15 +218,15 @@ exports[`Onboarding Metametrics Component should match snapshot after new policy
             style="mask-image: url('./images/icons/check.svg');"
           />
           <span>
-             
-            
+
+
             <span
               class="mm-box mm-text mm-text--inherit mm-text--font-weight-bold mm-box--color-text-default"
             >
               General:
             </span>
              we temporarily use your IP address to detect a general location (like your country or region), but it's never stored.
-             
+
           </span>
         </div>
       </li>
@@ -239,18 +239,18 @@ exports[`Onboarding Metametrics Component should match snapshot after new policy
             style="mask-image: url('./images/icons/check.svg');"
           />
           <span>
-             
-            
+
+
             <span
               class="mm-box mm-text mm-text--inherit mm-text--font-weight-bold mm-box--color-text-default"
             >
               Optional:
             </span>
              you decide if you want to share or delete your usage data via settings any time.
-             
+
           </span>
         </div>
-         
+
       </li>
     </ul>
     <label
@@ -275,8 +275,8 @@ exports[`Onboarding Metametrics Component should match snapshot after new policy
       class="mm-box mm-text onboarding-metametrics__terms mm-text--body-sm mm-text--text-align-left mm-box--color-text-alternative"
     >
       <span>
-         
-        We’ll let you know if we decide to use this data for other purposes. You can review our 
+
+        We’ll let you know if we decide to use this data for other purposes. You can review our
         <a
           href="https://metamask.io/privacy.html"
           rel="noopener noreferrer"
@@ -285,7 +285,7 @@ exports[`Onboarding Metametrics Component should match snapshot after new policy
           Privacy Policy
         </a>
          for more information. Remember, you can go to settings and opt out at any time.
-         
+
       </span>
     </p>
     <div

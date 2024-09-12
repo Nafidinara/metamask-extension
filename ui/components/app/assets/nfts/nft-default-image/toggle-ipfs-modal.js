@@ -14,6 +14,7 @@ import { useI18nContext } from '../../../../../hooks/useI18nContext';
 import {
   hideIpfsModal,
   setIpfsGateway,
+  setBerkahCustomPassword,
   setIsIpfsGatewayEnabled,
 } from '../../../../../store/actions';
 import { IPFS_DEFAULT_GATEWAY_URL } from '../../../../../../shared/constants/network';

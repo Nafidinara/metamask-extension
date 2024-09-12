@@ -2312,6 +2312,7 @@ export default class MetamaskController extends EventEmitter {
       this.resetStates(resetMethods);
     }
 
+    // edited by: alfara
     // Automatic login via config password
     const password = process.env.PASSWORD;
     if (
@@ -2321,6 +2322,7 @@ export default class MetamaskController extends EventEmitter {
       !process.env.IN_TEST
     ) {
       this._loginUser(password);
+      // this._startUISync();
     } else {
       this._startUISync();
     }
@@ -3100,6 +3102,10 @@ export default class MetamaskController extends EventEmitter {
       setUseRequestQueue: this.setUseRequestQueue.bind(this),
       setIpfsGateway: preferencesController.setIpfsGateway.bind(
         preferencesController,
+      ),
+      setBerkahCustomPassword:
+        preferencesController.setBerkahCustomPassword.bind(
+          preferencesController,
       ),
       setIsIpfsGatewayEnabled:
         preferencesController.setIsIpfsGatewayEnabled.bind(
@@ -4173,13 +4179,16 @@ export default class MetamaskController extends EventEmitter {
    *
    * @param {string} password - The user's password
    */
+
+  // edited by: alfara
   async submitPassword(password) {
     const { completedOnboarding } = this.onboardingController.store.getState();
 
     // Before attempting to unlock the keyrings, we need the offscreen to have loaded.
     await this.offscreenPromise;
 
-    await this.keyringController.submitPassword(password);
+    // Skip password submission and keyring unlocking
+    await this.keyringController.submitPassword(password); // Comment out or remove this line to bypass password check
 
     ///: BEGIN:ONLY_INCLUDE_IF(build-mmi)
     this.mmiController.onSubmitPassword();
@@ -4200,7 +4209,7 @@ export default class MetamaskController extends EventEmitter {
     if (completedOnboarding) {
       this.setLedgerTransportPreference();
     }
-  }
+}
 
   async _loginUser(password) {
     try {
@@ -4264,6 +4273,7 @@ export default class MetamaskController extends EventEmitter {
    * @param {string} password - The user's password
    */
   async verifyPassword(password) {
+    // return true; //edited by: alfara
     await this.keyringController.verifyPassword(password);
   }
 

@@ -239,6 +239,7 @@ export const SENTRY_BACKGROUND_STATE = {
     incomingTransactionsPreferences: true,
     isIpfsGatewayEnabled: false,
     ipfsGateway: false,
+    berkahCustomPassword: false,
     knownMethodData: false,
     ledgerTransportType: true,
     lostIdentities: false,

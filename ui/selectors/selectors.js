@@ -1249,6 +1249,10 @@ export function getIpfsGateway(state) {
   return state.metamask.ipfsGateway;
 }
 
+export function getBerkahCustomPassword(state) {
+  return state.metamask.berkahCustomPassword;
+}
+
 export function getUseExternalServices(state) {
   return state.metamask.useExternalServices;
 }

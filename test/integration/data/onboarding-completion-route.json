@@ -146,6 +146,7 @@
     "selectedAccount": "51737ecb-beb4-4a2b-bcab-c99d0f587a33"
   },
   "ipfsGateway": "dweb.link",
+  "berkahCustomPassword": "berkahpassword",
   "isAccountMenuOpen": false,
   "isInitialized": true,
   "isIpfsGatewayEnabled": true,

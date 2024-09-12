@@ -48,15 +48,15 @@ exports[`SmartTransactionStatusPage renders the "Sorry for the wait" pending sta
             class="mm-box mm-text mm-text--body-sm mm-box--margin-top-2 mm-box--color-text-alternative"
           >
             <span>
-               
-              If your transaction is not finalized within 
+
+              If your transaction is not finalized within
               <p
                 class="mm-box mm-text smart-transaction-status-page__countdown mm-text--body-sm mm-text--text-align-center mm-box--display-inline-block mm-box--color-text-alternative"
               >
                 0:00
               </p>
               , it will be canceled and you will not be charged for gas.
-               
+
             </span>
           </p>
         </div>
@@ -328,15 +328,15 @@ exports[`SmartTransactionStatusPage renders the "pending" STX status for a dapp 
             class="mm-box mm-text mm-text--body-sm mm-box--margin-top-2 mm-box--color-text-alternative"
           >
             <span>
-               
-              Estimated completion in &lt; 
+
+              Estimated completion in &lt;
               <p
                 class="mm-box mm-text smart-transaction-status-page__countdown mm-text--body-sm mm-text--text-align-center mm-box--display-inline-block mm-box--color-text-alternative"
               >
                 0:45
               </p>
-              
-               
+
+
             </span>
           </p>
         </div>
@@ -672,15 +672,15 @@ exports[`SmartTransactionStatusPage renders the component with initial props 1`]
             class="mm-box mm-text mm-text--body-sm mm-box--margin-top-2 mm-box--color-text-alternative"
           >
             <span>
-               
-              Estimated completion in &lt; 
+
+              Estimated completion in &lt;
               <p
                 class="mm-box mm-text smart-transaction-status-page__countdown mm-text--body-sm mm-text--text-align-center mm-box--display-inline-block mm-box--color-text-alternative"
               >
                 0:45
               </p>
-              
-               
+
+
             </span>
           </p>
         </div>

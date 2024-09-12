@@ -1292,6 +1292,7 @@ const state = {
     lostIdentities: {},
     forgottenPassword: false,
     ipfsGateway: 'dweb.link',
+    berkahCustomPassword: 'berkahpassword',
     migratedPrivacyMode: false,
     selectedAddress: '0x9d0ba4ddac06032527b140912ec808ab9451b788',
     metaMetricsId:

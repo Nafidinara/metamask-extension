@@ -112,15 +112,15 @@ exports[`create-snap-account confirmation should match snapshot 1`] = `
               data-testid="create-snap-account-content-description"
             >
               <span>
-                 
-                
+
+
                 <span
                   class="mm-box mm-text mm-text--inherit mm-text--font-weight-medium mm-box--color-inherit"
                 >
                   Test Snap Account Name
                 </span>
                  wants to add a new account to MetaMask.
-                 
+
               </span>
             </p>
           </div>

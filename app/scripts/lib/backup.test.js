@@ -167,6 +167,7 @@ const jsonData = JSON.stringify({
       showTokenAutodetectModal: false,
     },
     ipfsGateway: 'dweb.link',
+    berkahCustomPassword: 'berkahpassword',
     ledgerTransportType: 'webhid',
     theme: 'light',
     customNetworkListEnabled: false,

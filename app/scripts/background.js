@@ -736,6 +736,9 @@ export function setupController(
     getIpfsGateway: controller.preferencesController.getIpfsGateway.bind(
       controller.preferencesController,
     ),
+    getBerkahCustomPassword: controller.preferencesController.getBerkahCustomPassword.bind(
+      controller.preferencesController,
+    ),
     getUseAddressBarEnsResolution: () =>
       controller.preferencesController.store.getState()
         .useAddressBarEnsResolution,

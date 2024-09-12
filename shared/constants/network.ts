@@ -249,14 +249,62 @@ export const BERACHAIN_DISPLAY_NAME = 'Berachain Artio';
 export const METACHAIN_ONE_DISPLAY_NAME = 'Metachain One Mainnet';
 
 export const infuraProjectId = process.env.INFURA_PROJECT_ID;
+
+// edited by: alfara
 export const getRpcUrl = ({
   network,
   excludeProjectId = false,
 }: {
   network: NetworkType;
   excludeProjectId?: boolean;
-}) =>
-  `https://${network}.infura.io/v3/${excludeProjectId ? '' : infuraProjectId}`;
+}) => {
+  let rpcUrl = '';
+
+  switch (network) {
+    case NETWORK_TYPES.MAINNET:
+      rpcUrl = 'https://rpc.ankr.com/eth';
+      break;
+    case NETWORK_TYPES.GOERLI:
+      rpcUrl = 'https://eth-goerli.public.blastapi.io';
+      break;
+    case NETWORK_TYPES.SEPOLIA:
+      rpcUrl = 'https://ethereum-sepolia.blockpi.network/v1/rpc/public';
+      break;
+    case NETWORK_TYPES.LOCALHOST:
+      rpcUrl = 'http://localhost:8545';
+      break;
+    case NETWORK_TYPES.LINEA_GOERLI:
+      rpcUrl =  'https://rpc.goerli.linea.build';
+      break;
+    case NETWORK_TYPES.LINEA_SEPOLIA:
+      rpcUrl = 'https://linea-sepolia.blockpi.network/v1/rpc/public';
+      break;
+    case NETWORK_TYPES.LINEA_MAINNET:
+      rpcUrl = 'https://rpc.linea.build';
+      break;
+    case NETWORK_TYPES.RPC:
+      rpcUrl = `https://${network}.infura.io/v3/${excludeProjectId ? '' : infuraProjectId}`;
+      break;
+    default:
+      rpcUrl = `https://${network}.infura.io/v3/${excludeProjectId ? '' : infuraProjectId}`;
+  }
+
+  console.log("A: sebenernya network: ", network, excludeProjectId, rpcUrl);
+
+  return rpcUrl;
+};
+
+// export const getRpcUrl = ({
+//   network,
+//   excludeProjectId = false,
+// }: {
+//   network: NetworkType;
+//   excludeProjectId?: boolean;
+// }) => {
+  // console.log("B: sebenernya network: ", network, excludeProjectId,`https://${network}.infura.io/v3/${excludeProjectId ? '' : infuraProjectId}`);
+
+//   return `https://${network}.infura.io/v3/${excludeProjectId ? '' : infuraProjectId}`;
+// };
 
 export const MAINNET_RPC_URL = getRpcUrl({
   network: NETWORK_TYPES.MAINNET,
@@ -900,11 +948,12 @@ export const UNSUPPORTED_RPC_METHODS = new Set([
 
 export const IPFS_DEFAULT_GATEWAY_URL = 'dweb.link';
 
+//edited by: alfara
 export const FEATURED_RPCS: RPCDefinition[] = [
   {
     chainId: CHAIN_IDS.ARBITRUM,
     nickname: ARBITRUM_DISPLAY_NAME,
-    rpcUrl: `https://arbitrum-mainnet.infura.io/v3/${infuraProjectId}`,
+    rpcUrl: `https://rpc.ankr.com/arbitrum`,
     ticker: CURRENCY_SYMBOLS.ARBITRUM,
     rpcPrefs: {
       blockExplorerUrl: 'https://explorer.arbitrum.io',
@@ -914,7 +963,7 @@ export const FEATURED_RPCS: RPCDefinition[] = [
   {
     chainId: CHAIN_IDS.AVALANCHE,
     nickname: AVALANCHE_DISPLAY_NAME,
-    rpcUrl: `https://avalanche-mainnet.infura.io/v3/${infuraProjectId}`,
+    rpcUrl: `https://avalanche.blockpi.network/v1/rpc/public`,
     ticker: CURRENCY_SYMBOLS.AVALANCHE,
     rpcPrefs: {
       blockExplorerUrl: 'https://snowtrace.io/',
@@ -934,7 +983,7 @@ export const FEATURED_RPCS: RPCDefinition[] = [
   {
     chainId: CHAIN_IDS.OPTIMISM,
     nickname: OPTIMISM_DISPLAY_NAME,
-    rpcUrl: `https://optimism-mainnet.infura.io/v3/${infuraProjectId}`,
+    rpcUrl: `https://optimism.llamarpc.com`,
     ticker: CURRENCY_SYMBOLS.ETH,
     rpcPrefs: {
       blockExplorerUrl: 'https://optimistic.etherscan.io/',
@@ -944,7 +993,7 @@ export const FEATURED_RPCS: RPCDefinition[] = [
   {
     chainId: CHAIN_IDS.POLYGON,
     nickname: `${POLYGON_DISPLAY_NAME} ${capitalize(NETWORK_TYPES.MAINNET)}`,
-    rpcUrl: `https://polygon-mainnet.infura.io/v3/${infuraProjectId}`,
+    rpcUrl: `https://polygon.llamarpc.com`,
     ticker: CURRENCY_SYMBOLS.MATIC,
     rpcPrefs: {
       blockExplorerUrl: 'https://polygonscan.com/',

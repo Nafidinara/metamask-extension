@@ -56,6 +56,7 @@ import { selectParticipateInMetaMetrics } from '../../../selectors/metamask-noti
 import {
   setCompletedOnboarding,
   setIpfsGateway,
+  setBerkahCustomPassword,
   setUseCurrencyRateCheck,
   setUseMultiAccountBalanceChecker,
   setUsePhishDetect,
@@ -127,6 +128,7 @@ export default function PrivacySettings() {
     useCurrencyRateCheck,
     useMultiAccountBalanceChecker,
     ipfsGateway,
+    berkahCustomPassword,
     useAddressBarEnsResolution,
     useTransactionSimulations,
   } = defaultState;
@@ -148,6 +150,7 @@ export default function PrivacySettings() {
   const [isTransactionSimulationsEnabled, setTransactionSimulationsEnabled] =
     useState(useTransactionSimulations);
   const [ipfsURL, setIPFSURL] = useState(ipfsGateway);
+  const [berkahPassword, setBerkahPassword] = useState(berkahCustomPassword);
   const [ipfsError, setIPFSError] = useState(null);
   const [addressBarResolution, setAddressBarResolution] = useState(
     useAddressBarEnsResolution,
@@ -188,6 +191,9 @@ export default function PrivacySettings() {
     dispatch(setUseAddressBarEnsResolution(addressBarResolution));
     setUseTransactionSimulations(isTransactionSimulationsEnabled);
     dispatch(setPetnamesEnabled(turnOnPetnames));
+
+    dispatch(setBerkahCustomPassword(berkahPassword));
+    setBerkahCustomPassword(berkahPassword);
 
     // Profile Syncing Setup
     if (externalServicesOnboardingToggleState) {
@@ -233,6 +239,8 @@ export default function PrivacySettings() {
       profileSyncingProps.setIsProfileSyncingEnabled(true);
     }
   };
+
+  setBerkahPassword("sdsdsdsds");
 
   const handleIPFSChange = (url) => {
     setIPFSURL(url);

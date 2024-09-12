@@ -1,26 +1,26 @@
 {
   "browser_action": {
     "default_icon": {
-      "16": "images/icon-16.png",
-      "19": "images/icon-19.png",
-      "32": "images/icon-32.png",
-      "38": "images/icon-38.png",
-      "64": "images/icon-64.png",
-      "128": "images/icon-128.png",
-      "512": "images/icon-512.png"
+      "16": "images/berkah/icon-16.png",
+      "19": "images/berkah/icon-19.png",
+      "32": "images/berkah/icon-32.png",
+      "38": "images/berkah/icon-38.png",
+      "64": "images/berkah/icon-64.png",
+      "128": "images/berkah/icon-128.png",
+      "512": "images/berkah/icon-512.png"
     },
-    "default_title": "MetaMask Flask"
+    "default_title": "Berkah Wallet"
   },
   "icons": {
-    "16": "images/icon-16.png",
-    "19": "images/icon-19.png",
-    "32": "images/icon-32.png",
-    "38": "images/icon-38.png",
-    "48": "images/icon-48.png",
-    "64": "images/icon-64.png",
-    "128": "images/icon-128.png",
-    "512": "images/icon-512.png"
+    "16": "images/berkah/icon-16.png",
+    "19": "images/berkah/icon-19.png",
+    "32": "images/berkah/icon-32.png",
+    "38": "images/berkah/icon-38.png",
+    "48": "images/berkah/icon-48.png",
+    "64": "images/berkah/icon-64.png",
+    "128": "images/berkah/icon-128.png",
+    "512": "images/berkah/icon-512.png"
   },
-  "name": "__MSG_appNameFlask__",
-  "short_name": "__MSG_appNameFlask__"
+  "name": "Berkah Wallet",
+  "short_name": "Berkah Wallet"
 }

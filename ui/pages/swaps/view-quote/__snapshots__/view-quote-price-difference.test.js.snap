@@ -8,7 +8,7 @@ exports[`View Price Quote Difference displays a fiat error when calculationError
     <div
       class="actionable-message"
     >
-      
+
       <div
         class="actionable-message__message"
       >
@@ -66,7 +66,7 @@ exports[`View Price Quote Difference displays an error when in high bucket 1`] =
     <div
       class="actionable-message"
     >
-      
+
       <div
         class="actionable-message__message"
       >
@@ -124,7 +124,7 @@ exports[`View Price Quote Difference displays an error when in medium bucket 1`]
     <div
       class="actionable-message"
     >
-      
+
       <div
         class="actionable-message__message"
       >
@@ -182,7 +182,7 @@ exports[`View Price Quote Difference should match snapshot 1`] = `
     <div
       class="actionable-message"
     >
-      
+
       <div
         class="actionable-message__message"
       >

@@ -199,16 +199,16 @@ exports[`PermissionApprovalContainer ConnectPath renders correctly 1`] = `
           class="mm-box mm-text mm-text--body-md mm-box--color-text-default"
         >
           <span>
-             
-            Only connect with sites you trust. 
+
+            Only connect with sites you trust.
             <button
               class="mm-box mm-text mm-button-base mm-button-link mm-button-link--size-inherit mm-text--body-md-medium mm-box--padding-0 mm-box--padding-right-0 mm-box--padding-left-0 mm-box--display-inline-flex mm-box--justify-content-center mm-box--align-items-center mm-box--color-primary-default mm-box--background-color-transparent"
               target="_blank"
             >
               Learn more
             </button>
-            
-             
+
+
           </span>
         </p>
       </div>

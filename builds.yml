@@ -32,7 +32,7 @@ buildTypes:
     manifestOverrides: false
     # Build name used in multiple user-readable places
     # eg. eip6963
-    buildNameOverride: MetaMask
+    buildNameOverride: Berkah Wallet
 
   beta:
     id: 11
@@ -53,7 +53,7 @@ buildTypes:
     isPrerelease: true
     # Folder which contains overrides to browser manifests
     manifestOverrides: ./app/build-types/beta/manifest/
-    buildNameOverride: MetaMask Beta
+    buildNameOverride: Berkah Wallet
 
   flask:
     id: 15
@@ -76,7 +76,7 @@ buildTypes:
       - EIP_4337_ENTRYPOINT: '0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789'
     isPrerelease: true
     manifestOverrides: ./app/build-types/flask/manifest/
-    buildNameOverride: MetaMask Flask
+    buildNameOverride: Berkah Wallet
 
   mmi:
     id: 20
@@ -99,7 +99,7 @@ buildTypes:
     # Leaving it on for backwards compatibility
     isPrerelease: true
     manifestOverrides: ./app/build-types/mmi/manifest/
-    buildNameOverride: MetaMask Institutional
+    buildNameOverride: Berkah Wallet
 
 # Build types are composed of a set of features.
 # Each feature can have code fences that add new code
