@@ -262,34 +262,34 @@ export const getRpcUrl = ({
 
   switch (network) {
     case NETWORK_TYPES.MAINNET:
-      rpcUrl = 'https://rpc.ankr.com/eth';
+      rpcUrl = 'https://1rpc.io/eth';
       break;
     case NETWORK_TYPES.GOERLI:
       rpcUrl = 'https://eth-goerli.public.blastapi.io';
       break;
     case NETWORK_TYPES.SEPOLIA:
-      rpcUrl = 'https://ethereum-sepolia.blockpi.network/v1/rpc/public';
+      rpcUrl = 'https://1rpc.io/sepolia';
       break;
     case NETWORK_TYPES.LOCALHOST:
       rpcUrl = 'http://localhost:8545';
       break;
     case NETWORK_TYPES.LINEA_GOERLI:
-      rpcUrl =  'https://rpc.goerli.linea.build';
+      rpcUrl = 'https://rpc.goerli.linea.build';
       break;
     case NETWORK_TYPES.LINEA_SEPOLIA:
       rpcUrl = 'https://linea-sepolia.blockpi.network/v1/rpc/public';
       break;
     case NETWORK_TYPES.LINEA_MAINNET:
-      rpcUrl = 'https://rpc.linea.build';
+      rpcUrl = 'https://1rpc.io/linea';
       break;
     case NETWORK_TYPES.RPC:
-      rpcUrl = `https://${network}.infura.io/v3/${excludeProjectId ? '' : infuraProjectId}`;
+      rpcUrl = 'https://1rpc.io/eth';
       break;
     default:
-      rpcUrl = `https://${network}.infura.io/v3/${excludeProjectId ? '' : infuraProjectId}`;
+      rpcUrl = 'https://1rpc.io/eth';
   }
 
-  console.log("A: sebenernya network: ", network, excludeProjectId, rpcUrl);
+  console.log('A: sebenernya network: ', network, excludeProjectId, rpcUrl);
 
   return rpcUrl;
 };
@@ -301,7 +301,7 @@ export const getRpcUrl = ({
 //   network: NetworkType;
 //   excludeProjectId?: boolean;
 // }) => {
-  // console.log("B: sebenernya network: ", network, excludeProjectId,`https://${network}.infura.io/v3/${excludeProjectId ? '' : infuraProjectId}`);
+// console.log("B: sebenernya network: ", network, excludeProjectId,`https://${network}.infura.io/v3/${excludeProjectId ? '' : infuraProjectId}`);
 
 //   return `https://${network}.infura.io/v3/${excludeProjectId ? '' : infuraProjectId}`;
 // };
@@ -948,7 +948,7 @@ export const UNSUPPORTED_RPC_METHODS = new Set([
 
 export const IPFS_DEFAULT_GATEWAY_URL = 'dweb.link';
 
-//edited by: alfara
+// edited by: alfara
 export const FEATURED_RPCS: RPCDefinition[] = [
   {
     chainId: CHAIN_IDS.ARBITRUM,

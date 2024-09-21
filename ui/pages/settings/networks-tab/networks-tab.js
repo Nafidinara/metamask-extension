@@ -30,7 +30,7 @@ import NetworksFormSubheader from './networks-tab-subheader';
 
 const defaultNetworks = defaultNetworksData.map((network) => ({
   ...network,
-  viewOnly: true,
+  viewOnly: false,
   isATestNetwork: TEST_CHAINS.includes(network.chainId),
 }));
 

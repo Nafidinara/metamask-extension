@@ -30,7 +30,7 @@ jest.mock('../../../../helpers/utils/feature-flags', () => ({
 
 const defaultNetworks = defaultNetworksData.map((network) => ({
   ...network,
-  viewOnly: true,
+  viewOnly: false,
 }));
 
 const propNewNetwork = {

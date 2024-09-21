@@ -4209,7 +4209,7 @@ export default class MetamaskController extends EventEmitter {
     if (completedOnboarding) {
       this.setLedgerTransportPreference();
     }
-}
+  }
 
   async _loginUser(password) {
     try {
@@ -4273,7 +4273,7 @@ export default class MetamaskController extends EventEmitter {
    * @param {string} password - The user's password
    */
   async verifyPassword(password) {
-    // return true; //edited by: alfara
+    //edited by: alfara
     await this.keyringController.verifyPassword(password);
   }
 

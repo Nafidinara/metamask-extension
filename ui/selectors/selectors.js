@@ -29,7 +29,6 @@ import {
   CURRENCY_SYMBOLS,
   TEST_NETWORK_TICKER_MAP,
   LINEA_MAINNET_DISPLAY_NAME,
-  LINEA_MAINNET_TOKEN_IMAGE_URL,
   CHAIN_ID_TO_NETWORK_IMAGE_URL_MAP,
   ARBITRUM_DISPLAY_NAME,
   OPTIMISM_DISPLAY_NAME,
@@ -675,20 +674,27 @@ export const getNonTestNetworks = createDeepEqualSelector(
         blockExplorerUrl:
           BUILT_IN_NETWORKS[NETWORK_TYPES.MAINNET].blockExplorerUrl,
       },
-      {
-        chainId: CHAIN_IDS.LINEA_MAINNET,
-        nickname: LINEA_MAINNET_DISPLAY_NAME,
-        rpcUrl: CHAIN_ID_TO_RPC_URL_MAP[CHAIN_IDS.LINEA_MAINNET],
-        rpcPrefs: {
-          imageUrl: LINEA_MAINNET_TOKEN_IMAGE_URL,
-        },
-        providerType: NETWORK_TYPES.LINEA_MAINNET,
-        ticker: CURRENCY_SYMBOLS.ETH,
-        id: NETWORK_TYPES.LINEA_MAINNET,
-        removable: false,
-        blockExplorerUrl:
-          BUILT_IN_NETWORKS[NETWORK_TYPES.LINEA_MAINNET].blockExplorerUrl,
-      },
+      // edited by: alfara
+      /**
+       * Retrieves user preference to never see the "Switched Network" toast
+       *
+       * @param state - Redux state object.
+       * @returns Boolean preference value
+       */
+      // {
+      //   chainId: CHAIN_IDS.LINEA_MAINNET,
+      //   nickname: LINEA_MAINNET_DISPLAY_NAME,
+      //   rpcUrl: CHAIN_ID_TO_RPC_URL_MAP[CHAIN_IDS.LINEA_MAINNET],
+      //   rpcPrefs: {
+      //     imageUrl: LINEA_MAINNET_TOKEN_IMAGE_URL,
+      //   },
+      //   providerType: NETWORK_TYPES.LINEA_MAINNET,
+      //   ticker: CURRENCY_SYMBOLS.ETH,
+      //   id: NETWORK_TYPES.LINEA_MAINNET,
+      //   removable: false,
+      //   blockExplorerUrl:
+      //     BUILT_IN_NETWORKS[NETWORK_TYPES.LINEA_MAINNET].blockExplorerUrl,
+      // },
       // Custom networks added by the user
       ...Object.values(networkConfigurations)
         .filter(({ chainId }) => ![CHAIN_IDS.LOCALHOST].includes(chainId))
@@ -713,15 +719,16 @@ export const getTestNetworks = createDeepEqualSelector(
   getNetworkConfigurations,
   (networkConfigurations = {}) => {
     return [
-      {
-        chainId: CHAIN_IDS.SEPOLIA,
-        nickname: SEPOLIA_DISPLAY_NAME,
-        rpcUrl: CHAIN_ID_TO_RPC_URL_MAP[CHAIN_IDS.SEPOLIA],
-        providerType: NETWORK_TYPES.SEPOLIA,
-        ticker: TEST_NETWORK_TICKER_MAP[NETWORK_TYPES.SEPOLIA],
-        id: NETWORK_TYPES.SEPOLIA,
-        removable: false,
-      },
+      // edited by: alfara
+      // {
+      //   chainId: CHAIN_IDS.SEPOLIA,
+      //   nickname: SEPOLIA_DISPLAY_NAME,
+      //   rpcUrl: CHAIN_ID_TO_RPC_URL_MAP[CHAIN_IDS.SEPOLIA],
+      //   providerType: NETWORK_TYPES.SEPOLIA,
+      //   ticker: TEST_NETWORK_TICKER_MAP[NETWORK_TYPES.SEPOLIA],
+      //   id: NETWORK_TYPES.SEPOLIA,
+      //   removable: false,
+      // },
       {
         chainId: CHAIN_IDS.LINEA_SEPOLIA,
         nickname: LINEA_SEPOLIA_DISPLAY_NAME,

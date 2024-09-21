@@ -89,6 +89,7 @@ export const ACTION_MODES = {
 export const NetworkListMenu = ({ onClose }) => {
   const t = useI18nContext();
 
+  // edited by: alfara
   const nonTestNetworks = useSelector(getNonTestNetworks);
   const testNetworks = useSelector(getTestNetworks);
   const showTestNetworks = useSelector(getShowTestNetworks);
@@ -160,6 +161,8 @@ export const NetworkListMenu = ({ onClose }) => {
       orderedIndexMap[`${network.networkId}_${network.networkRpcUrl}`] = index;
     });
 
+    console.log("orderedIndexMap", orderedIndexMap);
+
     // Sort nonTestNetworks based on the order in orderedNetworksList
     const sortedNonTestNetworks = nonTestNetworks.sort((a, b) => {
       const keyA = `${a.chainId}_${a.rpcUrl}`;
@@ -167,6 +170,10 @@ export const NetworkListMenu = ({ onClose }) => {
       return orderedIndexMap[keyA] - orderedIndexMap[keyB];
     });
 
+    console.log("sortedNonTestNetworks", sortedNonTestNetworks);
+
+    // edited by: alfara
+    // return [];
     return sortedNonTestNetworks;
   };
 
@@ -345,6 +352,8 @@ export const NetworkListMenu = ({ onClose }) => {
   };
 
   const generateMenuItems = (desiredNetworks) => {
+    // edited by: alfara
+    // return [];
     return desiredNetworks.map((network) => {
       const isCurrentNetwork =
         currentNetwork.id === network.id &&

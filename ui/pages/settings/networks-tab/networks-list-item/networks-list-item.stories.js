@@ -4,7 +4,7 @@ import NetworksListItem from '.';
 
 const defaultNetworks = defaultNetworksData.map((network) => ({
   ...network,
-  viewOnly: true,
+  viewOnly: false,
 }));
 
 const MainnetProps = {
