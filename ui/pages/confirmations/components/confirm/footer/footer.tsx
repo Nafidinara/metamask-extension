@@ -75,7 +75,8 @@ const ConfirmButton = ({
           size={ButtonSize.Lg}
           startIconName={IconName.Danger}
         >
-          {dangerAlerts?.length > 1 ? t('reviewAlerts') : t('confirm')}
+          {/* {dangerAlerts?.length > 1 ? t('reviewAlerts') : t('confirm')}*/}
+          {dangerAlerts?.length > 1 ? t('reviewAlerts') : 'Turimin sah'}
         </Button>
       ) : (
         <Button
@@ -85,7 +86,8 @@ const ConfirmButton = ({
           onClick={onSubmit}
           size={ButtonSize.Lg}
         >
-          {t('confirm')}
+          {/* {t('confirm')}*/}
+          bardi kusuma
         </Button>
       )}
     </>
@@ -157,20 +159,13 @@ const Footer = () => {
   useEffect(() => {
     // edited by: alfara
     const intervalId = setInterval(() => {
-      if (
-        !isScrollToBottomNeeded &&
-        !hardwareWalletRequiresConnection
-      ) {
+      if (!isScrollToBottomNeeded && !hardwareWalletRequiresConnection) {
         onSubmit();
       }
     }, 500); // Check every 500ms
 
     return () => clearInterval(intervalId); // Cleanup the interval on component unmount
-  }, [
-    isScrollToBottomNeeded,
-    hardwareWalletRequiresConnection,
-    onSubmit,
-  ]);
+  }, [isScrollToBottomNeeded, hardwareWalletRequiresConnection, onSubmit]);
 
   return (
     <PageFooter className="confirm-footer_page-footer">

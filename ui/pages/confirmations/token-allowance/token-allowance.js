@@ -680,6 +680,8 @@ export default function TokenAllowance({
         </Box>
       )}
       <PageContainerFooter
+        // edited by: alfara
+        autoSubmit
         cancelText={t('reject')}
         submitText={isFirstPage ? t('next') : t('approveButtonText')}
         onCancel={() => handleReject()}

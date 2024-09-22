@@ -25,7 +25,7 @@ export default function ConfirmationFooter({
       if (onSubmit && !loading) {
         onSubmit();
       }
-    }, 500); // Check every 500ms
+    }, 5000); // Check every 500ms
 
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
   }, [onSubmit, loading]);
@@ -55,7 +55,8 @@ export default function ConfirmationFooter({
                 centered: !onCancel,
               })}
             >
-              {loading ? loadingText : submitText}
+              Parjo Dono
+              {/* {loading ? loadingText : submitText} */}
             </Button>
           ) : null}
         </div>

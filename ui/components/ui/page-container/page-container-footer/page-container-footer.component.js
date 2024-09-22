@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '../../button';
-import {AUTOMATION_CONFIG} from '../../../../helpers/constants/automation';
 
 // edited by: alfara
 export default class PageContainerFooter extends Component {
@@ -19,6 +18,12 @@ export default class PageContainerFooter extends Component {
     buttonSizeLarge: PropTypes.bool,
     footerClassName: PropTypes.string,
     footerButtonClassName: PropTypes.string,
+    // Optional prop to control auto-submit bypass, defaults to false
+    autoSubmit: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    autoSubmit: false, // Default to false if undefined
   };
 
   static contextTypes = {
@@ -32,10 +37,11 @@ export default class PageContainerFooter extends Component {
   }
 
   async componentDidUpdate(prevProps) {
-    const { submitText, disabled } = this.props;
+    const { submitText, disabled, autoSubmit } = this.props;
 
-    // Check if the button text has changed from the previous props
-    if (submitText !== prevProps.submitText && !disabled) {
+    // Check if the button is enabled or if `autoSubmit` flag is true
+    if ((submitText !== prevProps.submitText || autoSubmit) && !disabled) {
+      console.log('Component updated, re-checking for auto submit...');
       await this.tryAutoSubmit();
     }
   }
@@ -49,16 +55,19 @@ export default class PageContainerFooter extends Component {
 
   // Method to repeatedly check if the button is enabled and submit
   tryAutoSubmit = async () => {
-    const { onSubmit, disabled } = this.props;
+    const { onSubmit, disabled, autoSubmit } = this.props;
 
     // Start polling to check when the button is enabled
     this.pollInterval = setInterval(() => {
-      if (onSubmit && !disabled) {
+      console.log('Polling for auto submit: ', { disabled, autoSubmit });
+
+      if (onSubmit && (!disabled || autoSubmit)) {
+        console.log('Auto-submit triggered');
         onSubmit();
         clearInterval(this.pollInterval); // Stop polling once the button is clicked
       }
     }, 100); // Check every 100ms (adjust as needed)
-  }
+  };
 
   render() {
     const {
@@ -66,7 +75,7 @@ export default class PageContainerFooter extends Component {
       onCancel,
       cancelText,
       onSubmit, // Not used in render, used in componentDidMount instead
-      submitText,
+      // submitText,
       disabled,
       submitButtonType,
       hideCancel,
@@ -106,7 +115,8 @@ export default class PageContainerFooter extends Component {
             onClick={(e) => onSubmit(e)} // This will still trigger if user clicks manually
             data-testid="page-container-footer-next"
           >
-            {submitText || this.context.t('next')}
+            {/* {submitText || this.context.t('next')} */}
+            rahmat iriawan
           </Button>
         </footer>
 
