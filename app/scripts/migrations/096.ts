@@ -72,7 +72,7 @@ function transformState(state: Record<string, unknown>) {
   const mainNetworks = [CHAIN_IDS.MAINNET, CHAIN_IDS.LINEA_MAINNET];
   const testNetworks = [
     CHAIN_IDS.GOERLI,
-    CHAIN_IDS.SEPOLIA,
+    // CHAIN_IDS.SEPOLIA,
     CHAIN_IDS.LINEA_GOERLI,
   ];
   // TODO: Replace `any` with type

@@ -29,7 +29,7 @@ export default {
       {
         chainId: '42161',
         nickname: 'Arbitrum One',
-        rpcUrl: 'https://arbitrum-mainnet.infura.io/v3/{INFURA_API_KEY}',
+        rpcUrl: 'https://1rpc.io/arb',
         ticker: 'AETH',
         rpcPrefs: {
           blockExplorerUrl: 'https://explorer.arbitrum.io',
@@ -79,7 +79,7 @@ export default {
       {
         chainId: '10',
         nickname: 'Optimism',
-        rpcUrl: 'https://optimism-mainnet.infura.io/v3/{INFURA_API_KEY}',
+        rpcUrl: 'https://1rpc.io/op',
         ticker: 'KOR',
         rpcPrefs: {
           blockExplorerUrl: 'https://optimistic.etherscan.io/',
@@ -89,7 +89,7 @@ export default {
       {
         chainId: '137',
         nickname: 'Polygon Mainnet',
-        rpcUrl: 'https://polygon-mainnet.infura.io/v3/{INFURA_API_KEY}',
+        rpcUrl: 'https://1rpc.io/matic',
         ticker: 'MATIC',
         rpcPrefs: {
           blockExplorerUrl: 'https://polygonscan.com/',
@@ -99,7 +99,7 @@ export default {
       {
         chainId: '11297108109',
         nickname: 'Palm',
-        rpcUrl: 'https://palm-mainnet.infura.io/v3/{INFURA_API_KEY}',
+        rpcUrl: 'https://palm-mainnet.public.blastapi.io',
         ticker: 'PALM',
         rpcPrefs: {
           blockExplorerUrl: 'https://explorer.palm.io/',

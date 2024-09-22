@@ -6,7 +6,7 @@ import { E2E_SRP, defaultFixture } from '../../test/e2e/default-fixture';
 import { encryptorFactory } from './lib/encryptor-factory';
 
 export async function generateSkipOnboardingState() {
-  const state = defaultFixture('0xaa36a7').data;
+  const state = defaultFixture('0x1').data;
 
   state.AppStateController = generateAppStateControllerState();
   state.AnnouncementController = generateAnnouncementControllerState();
@@ -57,24 +57,25 @@ function generateAnnouncementControllerState() {
 
 // configure 'Sepolia' network
 // TODO: Support for local node
+// edited by: alfara
 function generateNetworkControllerState() {
   return {
     ...defaultFixture().data.NetworkController,
     providerConfig: {
-      chainId: '0xaa36a7',
+      chainId: '0x1',
       rpcPrefs: {
-        blockExplorerUrl: 'https://sepolia.etherscan.io',
+        blockExplorerUrl: 'https://etherscan.io',
       },
-      ticker: 'SepoliaETH',
-      type: 'sepolia',
+      ticker: 'ETH',
+      type: 'mainnet',
     },
     networkConfigurations: {
       networkConfigurationId: {
-        chainId: '0xaa36a7',
-        nickname: 'Sepolia',
+        chainId: '0x1',
+        nickname: 'mainnet',
         rpcPrefs: {},
-        rpcUrl: 'https://sepolia.infura.io/v3/6c21df2a8dcb4a77b9bbcc1b65ee9ded',
-        ticker: 'SepoliaETH',
+        rpcUrl: 'https://1rpc.io/eth',
+        ticker: 'ETH',
         networkConfigurationId: 'networkConfigurationId',
       },
     },

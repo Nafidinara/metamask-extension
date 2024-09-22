@@ -1040,12 +1040,12 @@ const NetworksForm = ({
   const isDefaultSepoliaTestnet = isDefaultNetwork(
     chainId,
     rpcUrl,
-    CHAIN_IDS.SEPOLIA,
+    CHAIN_IDS.GOERLI,
   );
   const isDefaultLineaSepoliaTestnet = isDefaultNetwork(
     chainId,
     rpcUrl,
-    CHAIN_IDS.LINEA_SEPOLIA,
+    CHAIN_IDS.LINEA_GOERLI,
   );
 
   const deletable = !isCurrentRpcTarget && !viewOnly && !addNewNetwork;

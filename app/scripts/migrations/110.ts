@@ -4,10 +4,10 @@ import { hasProperty } from '@metamask/utils';
 import { NetworkStatus } from '@metamask/network-controller';
 import {
   CHAIN_IDS,
-  SEPOLIA_DISPLAY_NAME,
   CHAIN_ID_TO_RPC_URL_MAP,
   NETWORK_TYPES,
   TEST_NETWORK_TICKER_MAP,
+  LINEA_SEPOLIA_DISPLAY_NAME,
 } from '../../../shared/constants/network';
 
 type VersionedData = {
@@ -55,20 +55,21 @@ function transformState(state: Record<string, any>) {
     state.NetworkController.providerConfig.chainId === CHAIN_IDS.GOERLI
   ) {
     networkControllerState.providerConfig = {
-      type: NetworkType.sepolia,
+      type: NetworkType['linea-sepolia'],
       rpcPrefs: {},
-      chainId: CHAIN_IDS.SEPOLIA,
-      nickname: SEPOLIA_DISPLAY_NAME,
-      rpcUrl: CHAIN_ID_TO_RPC_URL_MAP[CHAIN_IDS.SEPOLIA],
-      providerType: NETWORK_TYPES.SEPOLIA,
-      ticker: TEST_NETWORK_TICKER_MAP[NETWORK_TYPES.SEPOLIA],
-      id: NETWORK_TYPES.SEPOLIA,
+      chainId: CHAIN_IDS.LINEA_SEPOLIA,
+      nickname: LINEA_SEPOLIA_DISPLAY_NAME,
+      rpcUrl: CHAIN_ID_TO_RPC_URL_MAP[CHAIN_IDS.LINEA_SEPOLIA],
+      providerType: NETWORK_TYPES.LINEA_SEPOLIA,
+      ticker: TEST_NETWORK_TICKER_MAP[NETWORK_TYPES.LINEA_SEPOLIA],
+      id: NETWORK_TYPES.LINEA_SEPOLIA,
       removable: false,
     };
-    networkControllerState.selectedNetworkClientId = NETWORK_TYPES.SEPOLIA;
+    networkControllerState.selectedNetworkClientId =
+      NETWORK_TYPES.LINEA_SEPOLIA;
     networkControllerState.networksMetadata = {
       ...networkControllerState.networksMetadata,
-      sepolia: {
+      'linea-sepolia': {
         EIPS: {
           '1559': true,
         },

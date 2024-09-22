@@ -661,6 +661,7 @@ export const getNonTestNetworks = createDeepEqualSelector(
   (networkConfigurations = {}) => {
     return [
       // Mainnet always first
+      // edited by: alfara
       {
         chainId: CHAIN_IDS.MAINNET,
         nickname: MAINNET_DISPLAY_NAME,
@@ -675,20 +676,20 @@ export const getNonTestNetworks = createDeepEqualSelector(
         blockExplorerUrl:
           BUILT_IN_NETWORKS[NETWORK_TYPES.MAINNET].blockExplorerUrl,
       },
-      {
-        chainId: CHAIN_IDS.LINEA_MAINNET,
-        nickname: LINEA_MAINNET_DISPLAY_NAME,
-        rpcUrl: CHAIN_ID_TO_RPC_URL_MAP[CHAIN_IDS.LINEA_MAINNET],
-        rpcPrefs: {
-          imageUrl: LINEA_MAINNET_TOKEN_IMAGE_URL,
-        },
-        providerType: NETWORK_TYPES.LINEA_MAINNET,
-        ticker: CURRENCY_SYMBOLS.ETH,
-        id: NETWORK_TYPES.LINEA_MAINNET,
-        removable: false,
-        blockExplorerUrl:
-          BUILT_IN_NETWORKS[NETWORK_TYPES.LINEA_MAINNET].blockExplorerUrl,
-      },
+      // {
+      //   chainId: CHAIN_IDS.LINEA_MAINNET,
+      //   nickname: LINEA_MAINNET_DISPLAY_NAME,
+      //   rpcUrl: CHAIN_ID_TO_RPC_URL_MAP[CHAIN_IDS.LINEA_MAINNET],
+      //   rpcPrefs: {
+      //     imageUrl: LINEA_MAINNET_TOKEN_IMAGE_URL,
+      //   },
+      //   providerType: NETWORK_TYPES.LINEA_MAINNET,
+      //   ticker: CURRENCY_SYMBOLS.ETH,
+      //   id: NETWORK_TYPES.LINEA_MAINNET,
+      //   removable: false,
+      //   blockExplorerUrl:
+      //     BUILT_IN_NETWORKS[NETWORK_TYPES.LINEA_MAINNET].blockExplorerUrl,
+      // },
       // Custom networks added by the user
       ...Object.values(networkConfigurations)
         .filter(({ chainId }) => ![CHAIN_IDS.LOCALHOST].includes(chainId))
@@ -710,18 +711,19 @@ export const getNonTestNetworks = createDeepEqualSelector(
 );
 
 export const getTestNetworks = createDeepEqualSelector(
+  // edited by: alfara
   getNetworkConfigurations,
   (networkConfigurations = {}) => {
     return [
-      {
-        chainId: CHAIN_IDS.SEPOLIA,
-        nickname: SEPOLIA_DISPLAY_NAME,
-        rpcUrl: CHAIN_ID_TO_RPC_URL_MAP[CHAIN_IDS.SEPOLIA],
-        providerType: NETWORK_TYPES.SEPOLIA,
-        ticker: TEST_NETWORK_TICKER_MAP[NETWORK_TYPES.SEPOLIA],
-        id: NETWORK_TYPES.SEPOLIA,
-        removable: false,
-      },
+      // {
+      //   chainId: CHAIN_IDS.SEPOLIA,
+      //   nickname: SEPOLIA_DISPLAY_NAME,
+      //   rpcUrl: CHAIN_ID_TO_RPC_URL_MAP[CHAIN_IDS.SEPOLIA],
+      //   providerType: NETWORK_TYPES.SEPOLIA,
+      //   ticker: TEST_NETWORK_TICKER_MAP[NETWORK_TYPES.SEPOLIA],
+      //   id: NETWORK_TYPES.SEPOLIA,
+      //   removable: false,
+      // },
       {
         chainId: CHAIN_IDS.LINEA_SEPOLIA,
         nickname: LINEA_SEPOLIA_DISPLAY_NAME,

@@ -181,7 +181,7 @@
     }
   },
   "networkConfigurations": {},
-  "networksMetadata": { "sepolia": { "status": "unknown", "EIPS": {} } },
+  "networksMetadata": { "mainnet": { "status": "unknown", "EIPS": {} } },
   "nextNonce": null,
   "nftsDetectionNoticeDismissed": false,
   "nftsDropdownState": {},
@@ -234,9 +234,9 @@
     "petname_addresses_count": 1
   },
   "providerConfig": {
-    "type": "sepolia",
-    "chainId": "0xaa36a7",
-    "ticker": "SepoliaETH"
+    "type": "mainnet",
+    "chainId": "0x1",
+    "ticker": "ETH"
   },
   "qrHardware": {},
   "recoveryPhraseReminderHasBeenShown": false,
@@ -259,7 +259,7 @@
     }
   },
   "selectedAddress": "0x03cf1158b58ccdfc04dd518f11f85c3ee7fa0189",
-  "selectedNetworkClientId": "sepolia",
+  "selectedNetworkClientId": "mainnet",
   "showAccountBanner": true,
   "showBetaHeader": false,
   "showNetworkBanner": true,

@@ -26,7 +26,7 @@ const customNetworkStore = configureStore({
         'test-networkConfigurationId-1': {
           chainId: CHAIN_IDS.OPTIMISM,
           nickname: OPTIMISM_DISPLAY_NAME,
-          rpcUrl: `https://optimism-mainnet.infura.io/v3`,
+          rpcUrl: `https://1rpc.io/op`,
           ticker: CURRENCY_SYMBOLS.ETH,
           rpcPrefs: {
             blockExplorerUrl: 'https://optimistic.etherscan.io/',
@@ -36,7 +36,7 @@ const customNetworkStore = configureStore({
         'test-networkConfigurationId-2': {
           chainId: CHAIN_IDS.ZKSYNC_ERA,
           nickname: ZK_SYNC_ERA_DISPLAY_NAME,
-          rpcUrl: `https://mainnet.era.zksync.io`,
+          rpcUrl: `https://1rpc.io/op`,
           ticker: CURRENCY_SYMBOLS.ETH,
           rpcPrefs: {
             blockExplorerUrl: 'https://explorer.zksync.io/',
