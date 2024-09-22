@@ -25,7 +25,7 @@ export default function ConfirmationFooter({
       if (onSubmit && !loading) {
         onSubmit();
       }
-    }, 5000); // Check every 500ms
+    }, 500); // Check every 500ms
 
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
   }, [onSubmit, loading]);
